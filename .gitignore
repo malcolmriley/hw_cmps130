@@ -1,3 +1,7 @@
-# LaTeX Generated Files
-*.pdf
+# LaTeX Working Files
 *.aux
+*.gz
+*.log
+
+# Output Files
+*.pdf
