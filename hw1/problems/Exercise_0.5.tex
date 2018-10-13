@@ -1,0 +1,8 @@
+If $ C $ is a set with $ c $ elements, then the power set of $ C $ will contain $ 2^c $ elements. This can be seen through the following train of thought:
+\begin{itemize}
+	\item If $ C $ has $ 0 $ elements, then $ \mathcal{P}(C) $ will have $ 1 $ element: $\varnothing$.
+	\item If $ C $ has $ 1 $ element, then $ \mathcal{P}(C) $ will have $ 2 $ elements: $\varnothing$ and the set containing that element.
+	\item If $ C $ has $ 2 $ elements, then $ \mathcal{P}(C) $ will have $ 4 $ elements: $\varnothing$, two sets consisting of each individual element $c_1$ and $c_2$, and the set of both elements, $\{c_1,c_2\}$.
+\end{itemize}
+
+Each successive element $c_i$ added to $ C $ doubles the size of $\mathcal{P}(C)$; this is because the new power set contains all the sets comprised of all previous elements, plus all sets that can be made incorporating the new element.
