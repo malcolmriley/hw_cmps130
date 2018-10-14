@@ -1,1 +1,12 @@
-\quoteheading{Prove by induction on n that every non-empty finite set of positive integers contains a leastelement.}
+\quoteheading{Prove by induction on n that every non-empty finite set of positive integers contains a least
+element.}
+\begin{proof}
+	It must be demonstrated that for all non-empty sets of positive integers, there exists an element in that set that is less than or equal to all the other elements in the set.
+	\begin{enumerate}[label=\textbf{\Roman*}]
+		\item \label{4a} For a set of one element $n_1$, the least element in the set is that element, $n_1$.
+		\item \label{4b} For a set of two elements $n_1$ and $n_2$, then there are two possibilities: $n_1 \leq n_2$ or $n_1 \geq n_2$. In both cases, there is a least element - $n_1$ in the former case, and $n_2$ in the latter case. Therefore, for a set of two elements, there is a least element. Let this least element be represented by $n_l$, and further allow this case to be the basis for an inductive argument.
+		\item \label{4c} If one element $n_i$ is added to the two-element set described in \ref{4b}, the above property is upheld. This is demonstrated by comparing $n_i$ to the previously-established least element, $n_l$. As with \ref{4b}, if $n_i \geq n_l$, then $n_l$ is still the least element. Otherwise, if $n_i \leq n_l$, then $n_i$ is the new least element.
+		\item \label{4d} For each subsequent element $n_{i+1}$ added to set, property \ref{4c} is upheld: $n_{i+1} \leq n_l$, or $n_{i+1} \geq n_l$, and in both cases there will be a least element in the set.
+	\end{enumerate}
+	Thus, for all possible sets of positive integers, there exists a least element in the set as required.
+\end{proof}
