@@ -1,1 +1,12 @@
 \quoteheading{Proof by induction on $n$: For all $n \in \mathbb{N}$, $ \overline{\bigcap_{i=1}^{n} A_i} = \bigcup_{i=1}^{n} \overline{A_i}$.}
+\begin{proof}
+	It must be demonstrated that the set comprised of the complement of all intersections of a set of sets $A_n$ is the same set as the union of all complements of the set of sets $A_n$; in other words, if $x \in \overline{\{A_1 \cap A_2 \cap \ldots A_n\}}$, then $ x \in \{\overline{A_1} \cup \overline{A_2} \cup \ldots \overline{A_n}\}$, where $n \in \mathbb{N}$.
+	\begin{enumerate}[label=\textbf{\Roman*}]
+		\item \label{3a} It was previously demonstrated in \textbf{Task 1} that for two sets $A$ and $B$, $\overline{A \cap B} = \overline{A} \cup \overline{B}$.
+		\item \label{3b} By application of \ref{3a}, for sets $A_1$ and $A_2$, $\overline{A_1 \cap A_2} = \overline{A_1} \cup \overline{A_2}$. Thus it is established that for $n=2$, $ \overline{\bigcap_{i=1}^{n} A_i} = \bigcup_{i=1}^{n} \overline{A_i}$. Let this form the basis for an inductive argument.
+		\item \label{3c} It must thus be demonstrated that the required property be upheld for $ \overline{\bigcap_{i=1}^{m} A_i} = \bigcup_{i=1}^{m} \overline{A_i}$ where $m=n+1$
+		\item \label{3d} Following the argument of \textbf{Task 1}, if $x \notin A_1 \cap A_2 \cap \ldots A_{n+1}$, then $x \in \overline{A_1 \cap A_2 \ldots A_{n+1}}$.
+		\item \label{3e} Continuing this line of reasoning, if $x \notin A_1$, $x \notin A_2 \ldots x \notin A_{n+1} $ then $x \in \overline{A_1} \cup \overline{A_2} \cup \ldots \overline{A_{n+1}}$, by the definition of union.
+	\end{enumerate}
+	Thus, by \ref{3d}, \ref{3e}, and the reasoning delineated in \textbf{Task 1} the required property is upheld for all values $n \in \mathbb{N}$.
+\end{proof}
