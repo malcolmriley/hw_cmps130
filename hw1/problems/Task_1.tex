@@ -1,1 +1,10 @@
-\quoteheading{Prove from the definitions of set union, intersection, complement and equality that $ \overline{(A \cap B)} = (\overline{A} \cup \overline{B}) $}
+\quoteheading{Prove that $ \overline{(A \cap B)} = (\overline{A} \cup \overline{B}) $.}
+\begin{proof} It must be demonstrated that for every element $x$, if $x \in \overline{(A \cap B)}$, then $ x \in (\overline{A} \cup \overline{B}) $.
+	\begin{enumerate}[label=\textbf{\Roman*}]
+		\item \label{a} By the definition of set intersection, if $ x \in A \cap B $, then $ x \in A $ and $ x \in B $.
+		\item \label{b} By the definition of complement and \ref{a}, if $ x \in \overline{(A \cap B)} $, then $ x \notin A \cap B $; in other words, $ \overline{(A \cap B)} $ is the set of all elements that are not elements of both $ A $ and $ B $.
+		\item \label{c} By the definition of complement, $ \overline{A} $ is the set of all elements not in $ A $, and $\overline{B} $ is the set of all elements not in $ B $.
+		\item \label{d} By the definition of union and \ref{c}, $ \overline{A} \cap \overline{B} $ is the set of all elements that are not elements of both $ A $ and $ B $. This is the same set as described in \ref{b}.
+	\end{enumerate}
+	Therefore, by \ref{d}, $ \overline{(A \cap B)} = (\overline{A} \cup \overline{B}) $ as required.
+\end{proof}
