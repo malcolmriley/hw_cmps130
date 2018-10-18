@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+	\GraphInit[vstyle=Dijkstra]
+	
+	\Vertex[Math, x=0, y=0]{q_1}
+	\Vertex[Math, x=2, y=0]{q_2}
+	\Vertex[Math, x=4, y=0]{q_3}
+	\Vertex[Math, x=6, y=0]{q_4}
+	\Vertex[Math, x=8, y=0]{q_5}
+	
+	\Loop[label=u,dist=1cm,dir=WE,style={->}](q_1)
+	\Edge[label=d,style={->, bend right}](q_1)(q_2)
+	
+	\Edge[label=u,style={->, bend right}](q_2)(q_1)
+	\Edge[label=d,style={->, bend right}](q_2)(q_3)
+	
+	\Edge[label=u,style={->, bend right}](q_3)(q_2)
+	\Edge[label=d,style={->, bend right}](q_3)(q_4)
+	
+	\Edge[label=u,style={->, bend right}](q_4)(q_3)
+	\Edge[label=d,style={->, bend right}](q_4)(q_5)
+	
+	\Edge[label=u,style={->, bend right}](q_5)(q_4)
+	\Loop[label=u,dist=1cm,dir=EA,style={->}](q_5)
+	
+	\draw (4,0) circle (0.25cm);
+	\draw[thick,->] (4,0.75) -- (4,0.3);
+\end{tikzpicture}
