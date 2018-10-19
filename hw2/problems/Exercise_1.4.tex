@@ -1,6 +1,128 @@
 \begin{enumerate}[label=\textbf{\alph*.}]
-	\item a \addtocounter{enumi}{1}
-	\item c \addtocounter{enumi}{2}
+	\item Let $M_1$ be defined as: $(\{q_0, q_1, q_2, q_3\}, \{\text{a},\text{b}\}, \delta, q_0, \{q_3\})$; 
+	where $\delta=$ \begin{tabular}{c|cc}
+					&	a		&	b		\\ \hline
+			$q_0$	&	$q_1$	&	$q_0$	\\
+			$q_1$	&	$q_2$	&	$q_1$	\\
+			$q_2$	&	$q_3$	&	$q_2$	\\
+			$q_3$	&	$q_3$	&	$q_3$	\\
+		\end{tabular} \\
+		
+		\begin{center} \begin{tikzpicture}
+			\GraphInit[vstyle=Dijkstra]
+			\tikzset{LabelStyle/.style = {fill=white}}
+			
+			\Vertex[Math, x=0, y=0]{q_0}
+			\Vertex[Math, x=2, y=0]{q_1}
+			\Vertex[Math, x=4, y=0]{q_2}
+			\Vertex[Math, x=6, y=0]{q_3}
+			
+			\Loop[label=b,dist=1cm,dir=SO,style={->}](q_0)
+			\Loop[label=b,dist=1cm,dir=SO,style={->}](q_1)
+			\Loop[label=b,dist=1cm,dir=SO,style={->}](q_2)
+			\Loop[label={a,b},dist=1cm,dir=SO,style={->}](q_3)
+			
+			\Edge[label=a,style={->, bend left}](q_0)(q_1)
+			\Edge[label=a,style={->, bend left}](q_1)(q_2)
+			\Edge[label=a,style={->, bend left}](q_2)(q_3)
+			
+			\draw (6,0) circle (0.25cm);
+			\draw[thick,->] (0,0.75) -- (0,0.3);
+			
+		\end{tikzpicture} \end{center}
+		
+	Let $M_2$ be defined as: $(\{p_0, p_1, p_2\}, \{\text{a},\text{b}\}, \delta, p_0, \{p_3\})$; 
+	where $\delta=$ \begin{tabular}{c|cc}
+					&	a		&	b		\\ \hline
+			$p_0$	&	$p_0$	&	$p_1$	\\
+			$p_1$	&	$p_1$	&	$p_2$	\\
+			$p_2$	&	$p_2$	&	$p_2$	\\
+		\end{tabular} \\
+		
+		\begin{center} \begin{tikzpicture}
+			\GraphInit[vstyle=Dijkstra]
+			\tikzset{LabelStyle/.style = {fill=white}}
+			
+			\Vertex[Math, x=0, y=0]{p_0}
+			\Vertex[Math, x=2, y=0]{p_1}
+			\Vertex[Math, x=4, y=0]{p_2}
+			
+			\Loop[label=a,dist=1cm,dir=SO,style={->}](p_0)
+			\Loop[label=a,dist=1cm,dir=SO,style={->}](p_1)
+			\Loop[label={a,b},dist=1cm,dir=SO,style={->}](p_2)
+			
+			\Edge[label=b,style={->, bend left}](p_0)(p_1)
+			\Edge[label=b,style={->, bend left}](p_1)(p_2)
+			
+			\draw (4,0) circle (0.25cm);
+			\draw[thick,->] (0,0.75) -- (0,0.3);
+			
+		\end{tikzpicture} \end{center}
+	
+	Thus, $M_1 \cap M_2$ is given by $M_1 \times M_2 =$ \\ $(\{q_0p_0, q_0p_1, q_0p_2, q1p_0, q_1p_1, q_1p_2, q_2p_0, q_2p_1, q_2p_2, q_3p_0, q_3p_1, q_3p_2\}, \{\text{a}, \text{b}\}, \delta, q_0p_0, \{q_3p_2\} )$; \\ where $\delta=$ \begin{tabular}{c|cc}
+					&	a			&	b			\\ \hline
+		$q_0p_0$	&	$q_1p_0$	&	$q_0p_1$	\\
+		$q_0p_1$	&	$q_1p_1$	&	$q_0p_2$	\\
+		$q_0p_2$	&	$q_1p_2$	&	$q_0p_2$	\\
+		$q_1p_0$	&	$q_2p_0$	&	$q_1p_1$	\\
+		$q_1p_1$	&	$q_2p_1$	&	$q_1p_2$	\\
+		$q_1p_2$	&	$q_2p_2$	&	$q_1p_2$	\\
+		$q_2p_0$	&	$q_3p_0$	&	$q_2p_1$	\\
+		$q_2p_1$	&	$q_3p_1$	&	$q_2p_2$	\\
+		$q_2p_2$	&	$q_3p_2$	&	$q_2p_2$	\\
+		$q_3p_0$	&	$q_3p_0$	&	$q_3p_1$	\\
+		$q_3p_1$	&	$q_3p_1$	&	$q_3p_2$	\\
+		$q_3p_2$	&	$q_3p_2$	&	$q_3p_2$	\\
+	\end{tabular}\\
+	
+	\begin{center} \begin{tikzpicture}
+		\GraphInit[vstyle=Dijkstra]
+		\tikzset{LabelStyle/.style = {fill=white}}
+		
+		\Vertex[Math, x=2, y=0]{q_0p_0}
+		\Vertex[Math, x=4, y=0]{q_0p_1}
+		\Vertex[Math, x=6, y=0]{q_0p_2}
+		\Vertex[Math, x=2, y=2]{q_1p_0}
+		\Vertex[Math, x=4, y=2]{q_1p_1}
+		\Vertex[Math, x=6, y=2]{q_1p_2}
+		\Vertex[Math, x=2, y=4]{q_2p_0}
+		\Vertex[Math, x=4, y=4]{q_2p_1}
+		\Vertex[Math, x=6, y=4]{q_2p_2}
+		\Vertex[Math, x=2, y=6]{q_3p_0}
+		\Vertex[Math, x=4, y=6]{q_3p_1}
+		\Vertex[Math, x=6, y=6]{q_3p_2}
+		
+		\Edge[label=a,style={->, bend left}](q_0p_0)(q_1p_0)
+		\Edge[label=b,style={->, bend right}](q_0p_0)(q_0p_1)
+		\Edge[label=a,style={->, bend left}](q_0p_1)(q_1p_1)
+		\Edge[label=b,style={->, bend right}](q_0p_1)(q_0p_2)
+		\Edge[label=a,style={->, bend left}](q_0p_2)(q_1p_2)
+		\Loop[label=b,dist=1cm,dir=EA,style={->}](q_0p_2)
+		\Edge[label=a,style={->, bend left}](q_1p_0)(q_2p_0)
+		\Edge[label=b,style={->, bend right}](q_1p_0)(q_1p_1)
+		\Edge[label=a,style={->, bend left}](q_1p_1)(q_2p_1)
+		\Edge[label=b,style={->, bend right}](q_1p_1)(q_1p_2)
+		\Edge[label=a,style={->, bend left}](q_1p_2)(q_2p_2)
+		\Loop[label=b,dist=1cm,dir=EA,style={->}](q_1p_2)
+		\Edge[label=a,style={->, bend left}](q_2p_0)(q_3p_0)
+		\Edge[label=b,style={->, bend right}](q_2p_0)(q_2p_1)
+		\Edge[label=a,style={->, bend left}](q_2p_1)(q_3p_1)
+		\Edge[label=b,style={->, bend right}](q_2p_1)(q_2p_2)
+		\Edge[label=a,style={->, bend left}](q_2p_2)(q_3p_2)
+		\Loop[label=b,dist=1cm,dir=EA,style={->}](q_2p_2)
+		\Loop[label=a,dist=1cm,dir=NO,style={->}](q_3p_0)
+		\Edge[label=b,style={->, bend right}](q_3p_0)(q_3p_1)
+		\Loop[label=a,dist=1cm,dir=NO,style={->}](q_3p_1)
+		\Edge[label=b,style={->, bend right}](q_3p_1)(q_3p_2)
+		\Loop[label={a,b},dist=1cm,dir=EA,style={->}](q_3p_2)
+			
+		\draw (6,6) circle (0.35cm);
+		\draw[thick,->] (1,0) -- (1.5,0);
+		
+	\end{tikzpicture} \end{center}
+		\addtocounter{enumi}{1}
+	\item c 
+		\addtocounter{enumi}{2}
 	\item f 
 	\item g
 \end{enumerate}
