@@ -1,0 +1,23 @@
+Let $M$ be a DFA such that it accepts \setsuch{w}{w \text{ begins with 1 and ends with 0}}
+\begin{figure}[H] \centering \caption*{$M$} \begin{tikzpicture}
+	\GraphInit[vstyle=Dijkstra]
+	\tikzset{LabelStyle/.style = {fill=white}}
+	
+	\Vertex[Math, x=0, y=0]{q_0}
+	\Vertex[Math, x=2, y=0]{q_1}
+	\Vertex[Math, x=4, y=0]{q_2}
+	\Vertex[Math, x=6, y=0]{q_3}
+	
+	\Edge[label=0,style={->, bend right}](q_1)(q_0)
+	\Edge[label=1,style={->, bend left}](q_1)(q_2)
+	\Edge[label=0,style={->, bend left}](q_2)(q_3)
+	\Edge[label=1,style={->, bend left}](q_3)(q_2)
+	
+	\Loop[label=0,dist=1cm,dir=SO,style{->}](q_3)
+	\Loop[label=1,dist=1cm,dir=SO,style{->}](q_2)
+	\Loop[label={0,1},dist=1cm,dir=SO,style{->}](q_0)
+	
+	\draw (6,0) circle (0.25cm);
+	\draw[thick,->] (2,0.75) -- (2,0.3);
+	
+\end{tikzpicture} \end{figure}
