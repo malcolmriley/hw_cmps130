@@ -1,0 +1,43 @@
+A DFA that accepts the language \setsuch{w}{w \notin \text{a*b*}} must be constructed.
+\par
+Let $M_1$ be a DFA that accepts any string in the language a*b*:
+\begin{figure}[H] \centering \caption*{$M_1$} \begin{tikzpicture}
+	\GraphInit[vstyle=Dijkstra]
+	\tikzset{LabelStyle/.style = {fill=white}}
+	
+	\Vertex[Math, x=0, y=0]{q_0}
+	\Vertex[Math, x=2, y=0]{q_1}
+	\Vertex[Math, x=4, y=0]{q_2}
+	
+	\Edge[label=b,style={->, bend left}](q_0)(q_1)
+	\Edge[label=a,style={->, bend left}](q_1)(q_2)
+	
+	\Loop[label=a,dist=1cm,dir=SO,style{->}](q_0)
+	\Loop[label=b,dist=1cm,dir=SO,style{->}](q_1)
+	\Loop[label={a,b},dist=1cm,dir=SO,style{->}](q_2)
+	
+	\draw (0,0) circle (0.25cm);
+	\draw (2,0) circle (0.25cm);
+	\draw[thick,->] (0,0.75) -- (0,0.3);
+	
+\end{tikzpicture} \end{figure}
+The desired DFA is the complement of the above, $\overline{M_1}$:
+\begin{figure}[H] \centering \caption*{$\overline{M_1}$} \begin{tikzpicture}
+	\GraphInit[vstyle=Dijkstra]
+	\tikzset{LabelStyle/.style = {fill=white}}
+	
+	\Vertex[Math, x=0, y=0]{q_0}
+	\Vertex[Math, x=2, y=0]{q_1}
+	\Vertex[Math, x=4, y=0]{q_2}
+	
+	\Edge[label=b,style={->, bend left}](q_0)(q_1)
+	\Edge[label=a,style={->, bend left}](q_1)(q_2)
+	
+	\Loop[label=a,dist=1cm,dir=SO,style{->}](q_0)
+	\Loop[label=b,dist=1cm,dir=SO,style{->}](q_1)
+	\Loop[label={a,b},dist=1cm,dir=SO,style{->}](q_2)
+	
+	\draw (4,0) circle (0.25cm);
+	\draw[thick,->] (0,0.75) -- (0,0.3);
+	
+\end{tikzpicture} \end{figure}
