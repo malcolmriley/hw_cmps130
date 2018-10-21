@@ -1,0 +1,15 @@
+Let $M$ be the DFA such that it accepts the language \setsuch{w}{w = \varnothing}
+\begin{figure}[H] \centering \caption*{$M$} \begin{tikzpicture}
+	\GraphInit[vstyle=Dijkstra]
+	\tikzset{LabelStyle/.style = {fill=white}}
+	
+	\Vertex[Math, x=0, y=0]{q_0}
+	\Vertex[Math, x=2, y=0]{q_1}
+	
+	\Edge[label={0,1},style={->, bend left}](q_0)(q_1)
+	\Loop[label={0,1},dist=1cm,dir=SO,style={->}](q_1)
+	
+	\draw (0,0) circle (0.25cm);
+	\draw[thick,->] (0,0.75) -- (0,0.3);
+	
+\end{tikzpicture} \end{figure}
