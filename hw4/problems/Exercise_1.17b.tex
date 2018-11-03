@@ -1,1 +1,27 @@
-b
+Let $M_b$ be the DFA such that it accepts the same language as $M_1$:
+\begin{figure}[H] \centering \caption*{$M_b$} \begin{tikzpicture}
+	\GraphInit[vstyle=Dijkstra]
+	\tikzset{LabelStyle/.style = {fill=white}}
+	
+	\Vertex[Math, x=2, y=0]{p_0}
+	\Vertex[Math, x=0, y=0]{p_1}
+	\Vertex[Math, x=2, y=-2]{p_2}
+	\Vertex[Math, x=2, y=2]{p_3}
+	\Vertex[Math, x=4, y=0]{p_4}
+	
+	\Edge[label={0},style={->, bend left}](p_0)(p_1)
+	\Edge[label={1},style={->, bend left}](p_0)(p_4)
+	\Edge[label={0},style={->, bend right}](p_1)(p_2)
+	\Edge[label={1},style={->, bend left}](p_1)(p_0)
+	\Edge[label={1},style={->, bend left}](p_1)(p_3)
+	\Edge[label={0},style={->, bend right}](p_2)(p_4)
+	\Edge[label={1},style={->, bend left}](p_2)(p_0)
+	\Edge[label={1},style={->, bend left}](p_3)(p_4)
+	\Edge[label={0},style={->, bend right}](p_3)(p_0)
+	
+	\Loop[label={0,1},dist=1cm,dir=EA,style{->}](p_4)
+	
+	\draw (2,0) circle (0.25cm);
+	\draw[thick,->] (2,0.75) -- (2,0.3);
+	
+\end{tikzpicture} \end{figure}
