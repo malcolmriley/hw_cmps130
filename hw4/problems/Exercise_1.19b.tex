@@ -1,1 +1,24 @@
-b
+Let $M$ be the NFA such that it accepts the language described by $(((00)^*(11)) + 01)^*$:
+\begin{automata}{M}
+	\state{q_0}{0}{0}
+	\state{q_1}{2}{0}
+	\state{q_2}{4}{0}
+	\state{q_3}{6}{0}
+	\state{q_4}{8}{0}
+	\state{q_5}{-2}{0}
+	\state{q_6}{-4}{0}
+	
+	\tleft{q_0}{q_1}{0}
+	\tleft{q_0}{q_5}{0}
+	\tleft{q_1}{q_2}{0}
+	\tleft{q_2}{q_3}{1}
+	\tleft{q_2}{q_0}{0}
+	\tleft{q_3}{q_4}{1}
+	\tleft{q_5}{q_6}{1}
+	\tleft{q_6}{q_0}{$\epsilon$}
+	\tleft{q_4}{q_0}{$\epsilon$}
+	
+	\start{q_0}
+	\accept{q_4}
+	\accept{q_6}
+\end{automata}
