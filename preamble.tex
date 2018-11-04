@@ -37,7 +37,7 @@
 	\end{tikzpicture} \end{figure}
 }
 \newcommand{\state}[3]{\Vertex[Math, x=#2, y=#3]{#1}}
-\newcommand{\transition}[4]{\Edge[label={#1}, style = {->, bend #4}](#2)(#3)}
+\newcommand{\transition}[4]{\Edge[label={#3}, style = {->, bend #4}](#1)(#2)}
 \newcommand{\tright}[3]{\transition{#1}{#2}{#3}{right}}
 \newcommand{\tleft}[3]{\transition{#1}{#2}{#3}{left}}
 \newcommand{\accept}[1]{\draw (#1) circle (0.25cm);}
