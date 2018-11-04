@@ -1,1 +1,10 @@
-c
+Let $M$ be the automata such that it accepts the language described by $(\varnothing)^*$:
+\begin{automata}{m}
+	\state{q_0}{0}{0}
+	\state{q_1}{2}{0}
+	
+	\tleft{q_0}{q_1}{0,1}
+	
+	\start{q_0}
+	\accept{q_0}
+\end{automata}
