@@ -29,8 +29,8 @@
 }
 
 % Commands for automata
-\newenvironment{automata}{
-	\begin{figure}[H] \centering \caption*{$M$} \begin{tikzpicture}
+\newenvironment{automata}[1]{
+	\begin{figure}[H] \centering \caption*{#1} \begin{tikzpicture}
 	\GraphInit[vstyle=Dijkstra]
 	\tikzset{LabelStyle/.style = {fill=white}}
 }{
