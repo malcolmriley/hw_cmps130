@@ -2,6 +2,7 @@
 *.aux
 *.gz
 *.log
+*.synctex*
 
 # Output Files
 *.pdf
