@@ -12,6 +12,8 @@
 \usepackage{float}
 \usepackage{caption}
 
+\usetikzlibrary{fit}
+
 \pagenumbering{arabic}
 
 % Define useful commands
@@ -43,6 +45,7 @@
 \newcommand{\accept}[1]{\draw (#1) circle (0.25cm);}
 \newcommand{\start}[1]{\draw [<-, thick] (#1) to node[auto] {} ++ (0, 0.75);}
 \newcommand{\tloop}[3]{\Loop[label={#2},dist=1cm,dir=#3,style={->}](#1)}
+\newcommand{\machine}[2]{\node[fit=#1, draw, rectangle]{#2};}
 
 % Define set and graph theory functions
 \DeclareMathOperator{\degree}{\textsc{deg}}
