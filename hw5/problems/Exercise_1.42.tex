@@ -1,0 +1,16 @@
+Let the ``shuffle'' operation be defined by:
+\begin{align*}
+\shuffle(A,B) & = \{ w \mid w = a_1b_1 \cdots a_kb_k; a_n \in A, b_n \in B, a_nb_n \in \Sigma\kstar \}
+\end{align*} It must be demonstrated that for regular languages $A$ and $B$, that language $L_{A,B} = \shuffle(A,B)$ is also regular.
+
+\begin{proof}
+It is known that for a regular language $H$, if a string $h$ in $H$, then there exists a regular expression to represent $h$ (since there will be a regular expression to represent all of $H$). Furthermore, it is known that for $h_1, h_2 \in H$, the concatenation of those strings $h_1h_2$ will be in \emph{a} regular language (but not $H$), since the class of regular languages is closed under concatenation. A proof by induction will be used to demonstrate the required property using these principles.
+	\begin{enumerate}[label=\Roman*.]
+		\item \label{itm:1} If string $a_k \in A$ and $b_k \in B$, and $A$ and $B$ are regular, then $a_kb_k$ is regular. This follows the known property that the concatenation of two regular strings is also regular.
+		\item \label{itm:2} Suppose $A$ and $B$ each contain exactly one string, $a_1$ and $b_1$ respectively. Then, $\shuffle(A,B) = a_1b_1$. This is the simple concatenation of $a_1$ and $b_1$, which is regular by \ref{itm:1}. 
+		\item \label{itm:3} Suppose now that $A$ and $B$ each contain exactly two strings, $a_1, a_2$ and $b_1, b_2$. Then, $ \shuffle(A,B) = a_1b_1a_2b_2$. This is the simple concatenation of $a_1b_1$ and $a_2b_2$, which is regular by \ref{itm:1}. Thus, by \ref{itm:2} and \ref{itm:3}, the base case of the required property is established.
+		\item \label{itm:4} For the inductive step, suppose that $A$ and $B$ contain exactly $n$ strings. The result of $\shuffle(A,B) = a_1b_1a_2b_2 \cdots a_nb_n$. For $n=3$, this will be the simple concatenation of $a_1b_1a_2b_2$ and $a_3b_3$, two strings that have been demonstrated to be regular (by \ref{itm:1} and \ref{itm:3}. In fact, for any $n$, $\shuffle(A,B)$ will result in the concatenation of the strings $a_1b_1a_2b_2 \cdots a_{n-1}b_{n-1}$ and $a_nb_n$.
+		\item It is known that $a_kb_k$ is regular (by \ref{itm:1}), therefore, for all $n$, $a_nb_n$ is regular. Thus, $a_{n-1}b{n-1}$ is regular. Ergo, it can be concluded that for all $n$, $\shuffle(A,B)$ will be the simple concatenation of two regular strings, $a_1b_1a_2b_2 \cdots a_{n-1}b_{n-1}$ and $a_nb_n$, since $a_nb_n$ is regular and $a_1b_1a_2b_2 \cdots a_{n-1}b_{n-1}$ is \emph{itself} a concatenation of regular strings.
+		\item Therefore, for all $n$, the result of $\shuffle(A,B)$ is regular as required.
+	\end{enumerate}
+\end{proof}
