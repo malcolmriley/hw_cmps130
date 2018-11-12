@@ -1,1 +1,11 @@
-a
+Let the language $A_1 = \{\text{0}^n\text{1}^n\text{2}^n \mid n \geq 0\}$.
+\begin{itemize}
+	\item Assume that $A_1$ is regular.
+	\item Let $w$ = $\text{0}^k\text{1}^k\text{2}^k$. Thus $\abs{w} = 3k \geq k$.
+	\item Let $w = xyz$ sukh that $\abs{xy} \leq k$.
+	\item Let $x = \text{0}^p, y = \text{1}^q, z = \text{1}^r\text{2}^k$, where $p+q+r = k, p \neq 0, q \neq 0, r \neq 0$. Thus $\abs{y} \neq 0$.
+	\item Let $k=2$. Then, $xy^2z = \text{0}^p\text{1}^{2q}\text{1}^r\text{2}^k$.
+	\item Thus, we see that the number of 1s is $2q + r$.
+	\item Since $q \neq 0$ and $r \neq 0$, then $2q + r \neq 2$.
+	\item Therefore $xy^2z \notin L$ and thus $A_1$ is not regular.
+\end{itemize}
