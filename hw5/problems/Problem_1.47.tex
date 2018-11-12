@@ -1,0 +1,11 @@
+For $\Sigma = \{ \str{1}, \str{\#} \}$, let $Y = \{ w \mid w = x_1\str{\#}x_2 \cdots \str{\#}x_k \forall k \geq 0, \forall x_i \in \str{1}\kstar, i \neq j \implies x_i \neq x_j \}$.
+
+\begin{itemize}
+	\item This language, at first glance, seems to be the set of strings of the form \str{1}$\kstar$\str{\#}\str{1}$\kstar$\str{\#} $\cdots$ \str{1}$\kstar$; that is, the pattern of an arbitrary number of \str{1} followed by a \str{\#} repeated. Let this language be defined as $Y'$.
+	\item Ordinarily we could define $Y'$ using the regular expression (\str{1}$\kstar$\str{\#})$\kstar$.
+	\item However $Y$ differs in that it entails the caveat that no two instances of $x_n$ are the same. It is this quality that creates the irregularity of $Y$.
+	\item Therefore let $xyz = (\str{1}^p\str{\#})(\str{1}^q\str{\#})(\str{1}^r\str{\#})$ such that $p \neq q \neq r$. $xyz \in Y$. For this string, $x_k = \epsilon$, which means that all of $p, q, r \neq 0$.
+	\item Let $n = 2$. Is $xy^nz \in Y$?
+	\item Let $y = (\str{1}^x\str{\#})$ for $x = p, q$ or $r$. In the case of $x = q$ case $xy^2z = (\str{1}^p\str{\#})(\str{1}^x\str{\#})(\str{1}^x\str{\#})(\str{1}^r\str{\#})$. As can be seen, there will be two segments of \str{1}s of the same length $x$; thus $xy^2z \notin Y$. The same reasoning will hold for $x = p$ and $x = r$.
+	\item Thus, $Y$ is not regular.
+\end{itemize}
