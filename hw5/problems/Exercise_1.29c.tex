@@ -1,8 +1,8 @@
 Let the language $A_3$ be defined by $A_2 = \{\str{a}^{2^n} \mid n \geq 0 \}$.
 \begin{itemize}
 	\item Assume $A_3$ is regular.
-	\item Let $xyz = \str{a]^{2^p}\str{a]^{2^q}\str{a]^{2^r}$ such that $p + q + r = n, p \neq 0, q \neq 0, r \neq 0$, and $p=q=r$. Thus $xyz \in A_3$.
-	\item Select $y = \str{a]^{2^q}$. Since $q \neq 0, q \geq 1$.
+	\item Let $xyz = \str{a}^{2^p}\str{a}^{2^q}\str{a}^{2^r}$ such that $p + q + r = n, p \neq 0, q \neq 0, r \neq 0$, and $p=q=r$. Thus $xyz \in A_3$.
+	\item Select $y = \str{a}^{2^q}$. Since $q \neq 0, q \geq 1$.
 	\item Let $q = 2$; this will produce $xy^2z$.
-	\item $xy^2z \notin A_3$ since $xy^2z = \str{a]^{2^p}\str{a]^{2^q}\str{a]^{2^q}\str{a]^{2^r}$ and $p+q+q+r \geq n$.
+	\item $xy^2z \notin A_3$ since $xy^2z = \str{a}^{2^p}\str{a}^{2^q}\str{a}^{2^q}\str{a}^{2^r}$ and $p+q+q+r \geq n$.
 \end{itemize}
