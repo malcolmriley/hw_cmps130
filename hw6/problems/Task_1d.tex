@@ -1,1 +1,36 @@
-d
+Let $M_d$ be the automata defined by the given table:
+\begin{automata}{$M_d$}
+	\state{0}{0}{4}
+	\state{5}{2}{4}
+	\state{1}{4}{4}
+	\state{4}{6}{4}
+	\state{3}{0}{0}
+	\state{6}{2}{2}
+	\state{2}{4}{0}
+	
+	\tright{0}{3}{a}
+	\tright{0}{5}{b}
+	
+	\tleft{1}{2}{a}
+	\tright{1}{4}{b}
+	
+	\tleft{2}{6}{a}
+	\tleft{2}{3}{b}
+	
+	\tleft{3}{6}{a}
+	\tright{3}{6}{b}
+	
+	\tright{4}{0}{a}
+	\tleft{4}{2}{b}
+	
+	\tleft{5}{1}{a}
+	\tright{5}{6}{b}
+	
+	\tleft{6}{2}{a}
+	\tloop{6}{b}{NOEA}
+	
+	\start{1}
+	
+	\accept{4}
+	\accept{5}
+\end{automata}

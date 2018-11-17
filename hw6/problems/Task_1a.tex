@@ -1,1 +1,32 @@
-a
+Let $M_a$ be the automata defined by the given table:
+\begin{automata}{$M_A$}
+	\state{3}{0}{2}
+	\state{5}{2}{2}
+	\state{1}{4}{2}
+	\state{4}{0}{0}
+	\state{2}{2}{0}
+	\state{6}{4}{0}
+	
+	\tleft{1}{6}{a}
+	\tright{1}{3}{b}
+	
+	\tleft{2}{5}{a}
+	\tleft{2}{6}{b}
+	
+	\tleft{3}{4}{a}
+	\tright{3}{5}{b}
+	
+	\tleft{4}{3}{a}
+	\tleft{4}{2}{b}
+	
+	\tleft{5}{2}{a}
+	\tright{5}{1}{b}
+	
+	\tleft{6}{1}{a}
+	\tleft{6}{4}{b}
+	
+	\start{1}
+	
+	\accept{3}
+	\accept{4}
+\end{automata}
