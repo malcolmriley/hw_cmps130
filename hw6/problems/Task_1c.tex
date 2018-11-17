@@ -39,10 +39,55 @@ Table of State Pairs: \\
 \begin{center} \begin{tabular}{*{7}{c|}}
 									\cline{1-2}
 	1 &                       \\	\cline{1-3}
-	2 &   &                   \\	\cline{1-4}
-	3 &   &   &               \\	\cline{1-5}
-	4 &   &   &   &           \\	\cline{1-6}
-	5 &   &   &   &   &       \\	\hline
-	6 &   &   &   &   &   &   \\	\hline
+	2 & X & X                 \\	\cline{1-4}
+	3 & X & X & X             \\	\cline{1-5}
+	4 & X & X & X & X         \\	\cline{1-6}
+	5 & X & X &   & X & X     \\	\hline
+	6 & X & X & X &   & X & X \\	\hline
 	  & 0 & 1 & 2 & 3 & 4 & 5 \\	\hline
 \end{tabular} \end{center}
+
+Thus, state pairs $\{0,1\}, \{2,5\}$, and $\{3,6\}$ collapse.
+
+The reduced automata becomes:
+\begin{automata}{$M_c$ Reduced}
+	\state{4}{0}{0}
+	\state{01}{6}{0}
+	\state{25}{2}{0}
+	\state{36}{4}{1}
+	
+	\tleft{4}{25}{a}
+	\tloop{4}{b}{WE}
+	
+	\tleft{01}{36}{a}
+	\tleft{01}{25}{b}
+	
+	\tloop{25}{a}{SO}
+	\tleft{25}{36}{b}
+	
+	\tleft{36}{25}{a}
+	\tleft{36}{01}{b}
+	
+	\start{01}
+	\accept{01}
+\end{automata}
+
+Remark: Although state 4 was not eliminated by the \textsc{DFA-Minimize} procedure, it appears to be unreachable from the start state. A ``truly'' reduced automata follows:
+
+\begin{automata}{$M_c$ Reduced, II}
+	\state{01}{6}{0}
+	\state{25}{2}{0}
+	\state{36}{4}{1}
+	
+	\tleft{01}{36}{a}
+	\tleft{01}{25}{b}
+	
+	\tloop{25}{a}{SO}
+	\tleft{25}{36}{b}
+	
+	\tleft{36}{25}{a}
+	\tleft{36}{01}{b}
+	
+	\start{01}
+	\accept{01}
+\end{automata}
