@@ -1,0 +1,12 @@
+For strings $x$ and $y$, $x$ and $y$ are \emph{distinguishable} by $L$ if $\exists z$ such that either $xz \in L$ or $yz \in L$, but not both. If both $xz \in L$ and $yz \in L$, then $x$ and $y$ are \emph{indistinguishable} by $L$. Let the notation $x \equiv_L y$ mean that $x$ and $y$ are \emph{indistinguishable} by $L$.
+
+
+\begin{proof}
+	It must be demonstrated that \emph{indistinguishability} is an equivalence relation; it will therefore need to be demonstrated that the operation $x \equiv_L y$ is reflexive, symmetric, and transitive. Let $w,x,y,z \in \Sigma\kstar$ for some language $L$.
+	\begin{description}[]
+		\item[Reflexivity:] Given strings $x$ and $z$, if $xz \in L$ then $xz \in L$, and if $xz \notin L$ then $xz \notin L$ (trivial). As such, $x \equiv_L x$ is true. Therefore, $x \equiv_L y$ is reflexive.
+		\item[Symmetry:] Given strings $x$, $y$, and $z$, for $x \equiv_L y$, this means that $xz \in L$ and $xy \in L$; and for $y \equiv_L x$ this means that $yz \in L$ and $xz \in L$. Thus $x \equiv_L y$ is logically equivalent to $y \equiv_L x$; therefore, $x \equiv_L y$ is symmetric.
+		\item[Transitivity:] For $w \equiv_L x$, $wz \in L$ and $xz \in L$. For $x \equiv_y$, $xz \in L$ and $yz \in L$. Thus, $w \equiv_L x \equiv_L y$, and hence, $w \equiv_L x \land x \equiv_L z \implies w \equiv_L z$. Therefore, $x \equiv_L y$ is transitive.
+	\end{description}
+	Since $x \equiv_L y$ is reflexive, symmetric, and transitive, it is an equivalence relation, as required.
+\end{proof}
