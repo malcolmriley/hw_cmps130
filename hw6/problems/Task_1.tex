@@ -1,3 +1,14 @@
+\hrulefill
+\begin{center} Procedure (as transcribed from \texttt{minimize\_examples.pdf} from Canvas): \end{center}
+\begin{enumerate}[label=\arabic*.]
+	\item Create a table of state pairs $\{ p, q \}$ from the original DFA.
+	\item Mark the given pair $\{ p, q \}$ if $p \in F$ and $q \notin F$, or if $q \in F$ and $p \notin F$.
+	\item If there exists some $\{ p, q \}$ such that for some $a$ the pair $\{ \delta(p,a), \delta(q,a) \}$ is marked, then mark $\{ p, q \}$.
+	\item Repeat the previous steps until no more marked pairs are found. The resulting set of marked pairs are states that cannot be equivalent.
+	\item Create a new DFA from the resulting pairs.
+\end{enumerate}
+\hrulefill
+
 \begin{enumerate}
 	\item \input{./problems/Task_1a}
 	\item \input{./problems/Task_1b}
