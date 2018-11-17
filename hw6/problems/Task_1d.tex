@@ -38,11 +38,40 @@ Let $M_d$ be the automata defined by the given table:
 Table of State Pairs: \\
 \begin{center} \begin{tabular}{*{7}{c|}}
 									\cline{1-2}
-	1 &                       \\	\cline{1-3}
-	2 &   &                   \\	\cline{1-4}
-	3 &   &   &               \\	\cline{1-5}
-	4 &   &   &   &           \\	\cline{1-6}
-	5 &   &   &   &   &       \\	\hline
-	6 &   &   &   &   &   &   \\	\hline
-	  & 0 & 1 & 2 & 3 & 4 & 5 \\	\hline
+	1 & X                     \\	\cline{1-3}
+	2 & X & X                 \\	\cline{1-4}
+	3 & X & X &               \\	\cline{1-5}
+	4 & X & X & X & X         \\	\cline{1-6}
+	5 & X & X & X & X & X     \\	\hline
+	6 & X & X &   &   & X & X \\	\hline
+	  & 0 & 1 & 2 & 3 & 4 & 5 \\
 \end{tabular} \end{center}
+
+Thus, state pairs $\{2,3\}, \{2,6\}$, and $\{3,6\}$ collapse, with $\{2,3\}$ and $\{2,6\}$ collapsing further into $\{2,3,6\}$.
+
+The automata is thereby reduced:
+\begin{automata}{$M_d$ Reduced}
+	\state{4}{0}{0}
+	\state{1}{4}{0}
+	\state{236}{2}{1}
+	\state{0}{0}{2}
+	\state{5}{4}{2}
+	
+	\tleft{0}{236}{a}
+	\tleft{0}{5}{b}
+	
+	\tleft{1}{236}{a}
+	\tleft{1}{4}{b}
+	
+	\tloop{236}{a,b}{SO}
+	
+	\tleft{4}{0}{a}
+	\tleft{4}{236}{b}
+	
+	\tleft{5}{1}{a}
+	\tleft{5}{236}{b}
+	
+	\start{1}
+	\accept{4}
+	\accept{5}
+\end{automata}
