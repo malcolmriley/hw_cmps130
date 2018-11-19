@@ -23,7 +23,8 @@
 \newcommand{\setsuch}[2]{$\{#1\mid#2\}$}
 \newcommand{\quotes}[1]{\text{``#1''}}
 \newcommand{\quoteheading}[1]{\textbf{``#1''}\par}
-\newcommand{\inputexternal}[2]{\section*{#1 #2}\par\input{./problems/#1_#2.tex}}
+\newcommand{\inputexternal}[2]{\section*{#1 #2}\par\subproblem{#1}{#2}}
+\newcommand{\subproblem}[2]{\input{./problems/#1_#2.tex}}
 \newcommand{\problem}[1]{\inputexternal{Problem}{#1}}
 \newcommand{\exercise}[1]{\inputexternal{Exercise}{#1}}
 \newcommand{\task}[1]{\inputexternal{Task}{#1}}
