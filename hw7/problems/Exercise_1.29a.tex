@@ -2,7 +2,7 @@ It must be demonstrated that the language $A_1 = \{ \str{0}^n\str{1}^n\str{2}^n 
 \begin{proof}
 The Myhill-Nerode Theorem will be used to demonstrate that $A_1$ is not regular.
 	\begin{enumerate}[label=\Roman*.]
-		\item Consider the set $S = \{\str{0}^n \mid n \geq 1\}$. This set is infinite.
+		\item Consider the set $S = \{\str{0}^n \mid n \geq 0\}$. This set is infinite.
 		\item Any two members of $S$ have the form $x = \str{0}^n$ or $y = \str{0}^m$, where $m \neq n$
 		\item Let $z = \str{1}^n\str{2}^n$. The string $z$ distinguishes $x$ and $y$ since $xz \in A_1$ but $yz \notin A_1$, since $\str{0}^n\str{1}^n\str{2}^n \in A_1$ but $\str{0}^m\str{1}^n\str{2}^n \notin A_1$ because $m \neq n$.
 		\item Thus, for each distinct $m$ and $n$, there exist distinct equivalence classes.
