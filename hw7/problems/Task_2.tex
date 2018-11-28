@@ -1,0 +1,6 @@
+Let $\Sigma = \{\str{a}, \str{b}\}$. For language $L = \{ x \in \Sigma\kstar \mid x \neq ww; w \in \Sigma\kstar\}$: \par
+\begin{tabular}{ccl}
+	$R$ & $\rightarrow$ & $S \mid Q \mid SQ \mid QS$ \\
+	$S$ & $\rightarrow$ & $\str{a} \mid \str{a}S\str{a} \mid \str{a}S\str{b} \mid \str{b}S\str{b} \mid \str{b}S\str{a}$ \\
+	$Q$ & $\rightarrow$ & $\str{b} \mid \str{a}Q\str{a} \mid \str{a}Q\str{b} \mid \str{b}Q\str{b} \mid \str{b}Q\str{a}$ \\
+\end{tabular}
