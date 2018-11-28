@@ -1,3 +1,14 @@
+It will be demonstrated that for the alphabet $\Sigma = \{ \str{0} \}$, the language $L = \{ \str{0}^n \mid n \; \text{is divisible by $3$} \}$ is regular.
+\begin{proof}
+	The Myhill-Nerode Theorem will be used to prove that $L$ is regular.
+	\begin{enumerate}[label=\Roman*.]
+		\item Consider the two subsets of $L$: $L_1 = \{ \str{0}^n \mid n \; \text{is divisible by $3$} \}$, and $L_2 = \{ \str{0}^n \mid n \; \text{is \emph{not} divisible by $3$} \}$
+		\item Each string $s \in L_1$ is of the form $\str{0}^n$ or $\str{0}^m$, where $m \neq n$ but both $m$ and $n$ are divisible by $3$. Therefore, for each pair of $m$ and $n$, each string $s \in L_1$ is in the same equivalence class.
+		\item Each string $c \in L_2$ is of the form $\str{0}^p$ or $\str{0}^q$, where $p \neq q$ but both $p$ and $q$ are \emph{not} divisible by $3$. Therefore, for each pair $p$ and $q$, each string $c \in L_2$ is in the same equivalence class.
+		\item By the above, $\forall s \in L_1$ and $\forall c \in L_2$, $s \in L$ and $c \notin L$; moreover there exists a relation $R_L$ such that $s R_L c$.
+		\item Since every string in $\Sigma\kstar$ has a length that is either divisible by three (And therefore in $L$) or not divisible by three (and therefore not in $L$), then $L_1 \cup L_2 = L$.
+	\end{enumerate}
+	Thus $L$ is regular, as required.
+\end{proof}
 
-
-It would not be possible to prove that this language is regular using only the Pumping Lemma. The Pumping Lemma may prove that a language is not regular, but cannot be used to prove that a language is regular.
+Remark: It would not be possible to prove that this language is regular using only the Pumping Lemma. The Pumping Lemma may prove that a language is not regular, but cannot be used to prove that a language is regular.
