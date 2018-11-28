@@ -1,1 +1,12 @@
-c
+It must be demonstrated that the language $A_3 = \{ \str{a}^{2^n} \mid n \geq 0 \}$ is not regular.
+\begin{proof}
+The Myhill-Nerode Theorem will be used to demonstrate that $A_3$ is not regular.
+	\begin{enumerate}[label=\Roman*.]
+		\item Any string of the form $\str{a}^{2^n}$ may also be represented as $\str{a}^{2^{n-1}}\str{a}^2$.
+		\item Consider the set $S = \{ \str{a}^{2^{n-1}} \mid n \geq 0 \}$. This set is infinite.
+		\item Any two members of $S$ have the form $x = \str{a}^{2^{n-1}}$ or $y = \str{a}^{2^{m-1}}$, where $m \neq n$.
+		\item Let $z = \str{a}^2$. The string $z$ distinguishes $x$ and $y$ since $xz \in A_3$ but $yz \notin A_3$, since $\str{a}^{2^{n-1}}\str{a}^2 \in A_3$ but $\str{a}^{2^{m}}\str{a}^2 \notin A_3$, since $m \neq n$.
+		\item Thus, for each distinct $m$ and $n$, there exist distinct equivalence classes.
+	\end{enumerate}
+	Therefore the index of $A_3$ is infinite, and as such, $A_3$ is not regular as required.
+\end{proof}
