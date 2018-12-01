@@ -1,1 +1,17 @@
-d
+It must be demonstrated that the language $L = \{ t_1\str{\#}t_2\str{\#}\dots\str{\#}t_k \mid k \geq 2, t_n \in \{\str{a}, \str{b}\}\kstar, t_i = t_j \iff i \neq j\}$ is not context-free.
+\begin{proof}
+	The Pumping Lemma for Context-Free Languages will be used to demonstrate that $L$ is not Context-Free.
+	\begin{enumerate}[label=\Roman*.]
+		\item Let $s = t_1\str{\#}t_2\str{\#}t_3$, where $t_1, t_2, t_3 \in \{\str{a}, \str{b}\}\kstar$ and $t_1 = t_2 = t_3$. $s \in L$, moreover let $\abs{s} \geq p$.
+		\item Select any $u$, $v$, $x$, $y$, $z$ such that $s = uvxyz$, and the pumped string $s_2 = uv^kxy^kz$.
+		\item Let $k = 2$ such that $s_2 = uv^2xy^2z$.
+		\item By condition 2 of the pumping lemma, $v$ and $y$ cannot both be empty. Therefore, there are several possibilities for each of $v$ and $y$.
+		\begin{itemize}
+			\item The string contains only $\str{\#}$. $s_2$ will therefore be of the form $t_1\str{\#\#}t_2\str{\#\#}t_3$; this is not in the language since $t_1 = t_2 = t_3$ and $\epsilon = \epsilon$ but $t_1 \neq \epsilon$.
+			\item The string contains only some substring of a $t$ string. If this is the case, then $v$ and $y$ are substrings of $t_1$ and $t_3$, respectively (since otherwise, they would contain the character $\str{\#}$). While pumping the string could yield a $t_1 = t_2$ (since it is possible that the same substring of $t_1$ and $t_3$ be pumped), there are no cases where pumping a substring of $t_1$ or $t_3$ yielded a string equal to $t_2$, because $t_1 = t_2 = t_3$ \emph{before} pumping occurred. In other words, pumping $s$ in this case would yield $s_2$ of the form $t_1\str{\#}t_2\str{\#}t_3$ where $t_1, t_3 \neq t_2$, thus $s_2 \notin L$.
+			\item The string contains some combination of the character $\str{\#}$ and the surrounding $t$-strings. Pumping $s$ in this case would yield an $s_2$ of the form $t_1\str{\#}t_2\str{\#}t_3\str{\#}t_4\str{\#}t_5$, but as with the previous case, not all $t_n$ would be the same. Therefore, in this case, $s_2 \notin L$. 
+		\end{itemize}
+		\item As can be seen, in all possible selections of $s = uvxyz$, $s \in L$ but $s_2 \notin L$.
+	\end{enumerate}
+	Thus $L$ is not context-free, as required.
+\end{proof}
