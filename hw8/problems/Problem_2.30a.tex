@@ -1,1 +1,16 @@
-a
+It must be demonstrated that the language $L = \{ \str{0}^n\str{1}^n\str{0}^n\str{1}^n \mid n \geq 0 \}$ is not context-free.
+\begin{proof}
+	The Pumping Lemma for Context-Free Languages will be used to demonstrate that $L$ is not Context-Free.
+	\begin{enumerate}[label=\Roman*.]
+		\item Let $s = \str{0}^k\str{1}^p\str{0}^p\str{1}^p$. Since $p \geq 1$ then $\abs{s} \geq p$, and $s in L$.
+		\item Select any $u$, $v$, $x$, $y$, $z$ such that $s = uvxyz$, and the pumped string $s_2 = uv^kxy^kz$.
+		\item Let $k=2$ so that $s_2 = uv^2xy^2z$.
+		\item By condition 2 of the pumping lemma, $v$ and $y$ cannot both be empty. Therefore, there are two possibilities for $v$ and $y$ each:
+		\begin{itemize}
+			\item The string contains exactly one type of character, $\str{0}$ or $\str{1}$. If this is the case, then pumping $s$ yields differing numbers of $\str{0}$ and $\str{1}$ in $s_2$; in this case $s_2 \notin L$.
+			\item The string contains both $\str{0}$ and $\str{1}$ characters, in which case pumping $s$ yields a string not of the form $\str{0}^n\str{1}^n\str{0}^n\str{1}^n$, since there will be additional repeated substrings of the form $\str{0}^n\str{1}^n\dots$ in $s_2$. In this case, $s_2 \notin L$.
+		\end{itemize}
+		\item As can be seen, in both cases, pumping $s$ yields an $s_2 \notin L$.
+	\end{enumerate}
+	Thus $L$ is not context-free, as required.
+\end{proof}
