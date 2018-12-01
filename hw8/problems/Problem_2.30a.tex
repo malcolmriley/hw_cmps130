@@ -2,7 +2,7 @@ It must be demonstrated that the language $L = \{ \str{0}^n\str{1}^n\str{0}^n\st
 \begin{proof}
 	The Pumping Lemma for Context-Free Languages will be used to demonstrate that $L$ is not Context-Free.
 	\begin{enumerate}[label=\Roman*.]
-		\item Let $s = \str{0}^k\str{1}^p\str{0}^p\str{1}^p$. Since $p \geq 1$ then $\abs{s} \geq p$, and $s in L$.
+		\item Let $s = \str{0}^k\str{1}^p\str{0}^p\str{1}^p$. Since $p \geq 1$ then $\abs{s} \geq p$, and $s \in L$.
 		\item Select any $u$, $v$, $x$, $y$, $z$ such that $s = uvxyz$, and the pumped string $s_2 = uv^kxy^kz$.
 		\item Let $k=2$ so that $s_2 = uv^2xy^2z$.
 		\item By condition 2 of the pumping lemma, $v$ and $y$ cannot both be empty. Therefore, there are two possibilities for $v$ and $y$ each:
