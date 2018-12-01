@@ -1,0 +1,10 @@
+{ \setlength\parindent{2em}
+\indent A Context-Free grammar is in Chomsky Normal Form if all of its production rules are of the form $A \rightarrow BC$ or $A \rightarrow a$. The derivation of any particular string in a Context-Free grammar can be represented with a Parse Tree.
+
+\indent Regardless of the ambiguity of the parse derivation, because the grammar is in Chomsky Normal Form, then for each particular node in the tree, it can have at most two children (in the case of a derivation of form $A \rightarrow BC$). Since it is given that the derivation has at least $2^b$ steps, then the parse tree internally has at least $2^b$ nodes.
+
+\indent Therefore, in the least case, the height of the tree is at least $b+1$; that is to say, there exists some sequence of decisions in the derivation of the string involving at least $b+1$ variables. However, it was given that the grammar contains only $b$ variables; ergo, by the pigeonhole principle, at least one of the $b+1$ variables must have been encountered twice during derivation.
+
+\indent Since there must be at least one variable in the parse tree that is encountered twice, the derived string is in some way ``pumpable,'' meaning that the primary sequence of derivation in the parse tree may be repeated an arbitrary number of times to produce new strings.
+
+\indent As such, infinitely many strings can be generated with the described derivation, and therefore $L(G)$ must be infinite.}
