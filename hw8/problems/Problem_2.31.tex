@@ -1,0 +1,16 @@
+It must be demonstrated that the language $L = \{ ww^R \mid ww \; \text{contains an equal number of \str{0}s and \str{1}s}\}$ for $\Sigma = \{\str{0}, \str{1}\}$ is not Context-Free.
+
+\begin{proof}
+	The Pumping Lemma for Context-Free Languages will be used to demonstrate that $L$ is not Context-Free.
+	\begin{enumerate}[label=\Roman*.]
+		\item Let $s = \str{0}^p\str{1}^p\str{1}^p\str{0}^p$. Since $p \geq 1$, $\abs{s} \geq p$. Furthermore, as can be seen, $s \in L$.
+		\item Select any $u$, $v$, $x$, $y$, $z$ such that $s = uvxyz$ and the pumped string $s_2 = uv^kxy^kz$.
+		\item Let $k = 2$ so that $s_2 = uv^2xy^2z$.
+		\item By condition 2 of the pumping lemma, $v$ and $y$ cannot both be empty. Therefore, there are two possibilities for each of $v$ and $y$:
+		\begin{itemize}
+			\item The string contains only $\str{0}$, or only $\str{1}$. In this case, pumping the string yields an $s_2$ where the quantity of \str{0} and \str{1} are unequal. Therefore, $s_2 \notin L$.
+			\item The string contains a combination of \str{0} and \str{1}. In this case, repeating the string breaks the palindromic nature of $s_2$ (since the pumped string would need to be reversed in the latter half of $s_2$, but pumping alone does not yield this operation). Thus, $s_2 \notin L$.
+		\end{itemize}
+	\end{enumerate}
+	Therefore, $L$ is not Context-Free as required.
+\end{proof}
