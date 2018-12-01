@@ -1,0 +1,27 @@
+For a Context-Free Grammar $G$ to be in Chomsky Normal Form, all of its productions need to be in the form $A \rightarrow BC$ or $A \rightarrow a$. The given production rules of $G$ are:
+\begin{equation*}
+	P = \left\{ \begin{array}{lcl}
+		A & \rightarrow & BAB \mid B \mid \epsilon \\
+		B & \rightarrow & \str{00} \mid \epsilon
+	\end{array} \right.
+\end{equation*}
+Only four rules of $P$ violate the Chomsky Normal Form condition: $A \rightarrow BAB$, $B \rightarrow \str{00}$, and the $\epsilon$-productions. Therefore, for each of the aforementioned, perform the following alterations:
+\begin{alignat*}{3}
+	A \rightarrow BAB & \quad \cdots \quad && A \rightarrow BC; C \rightarrow AB \\
+	B \rightarrow \str{00} & \quad \cdots \quad && Z \rightarrow \str{0}; B \rightarrow ZZ \\
+	A \rightarrow \epsilon \; \text{and} \; A \rightarrow BAB & \quad \cdots \quad && A \rightarrow BB \\
+	B \rightarrow \epsilon  \; \text{and} \; A \rightarrow BAB & \quad \cdots \quad && A \rightarrow AB; A \rightarrow BA
+\end{alignat*}
+The final Chomsky Normal Form production set $\hat{P}$ thus becomes:
+\begin{equation*}
+	\hat{P} = \left\{ \begin{array}{lcl}
+		A & \rightarrow & B \\
+		A & \rightarrow & BB \\
+		A & \rightarrow & AB \\
+		A & \rightarrow & BA \\
+		A & \rightarrow & BC \\
+		C & \rightarrow & AB \\
+		B & \rightarrow & ZZ \\
+		Z & \rightarrow & \str{0} \\
+	\end{array} \right.
+\end{equation*}
