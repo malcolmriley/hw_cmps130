@@ -1,0 +1,46 @@
+The CFG $G_4$ for $\Sigma = \{\str{a}, \str{+}, \str{x}, \str{(}, \str{)} \}$ is given by:
+\begin{align*}
+	E & \rightarrow E \str{+} T \mid T \\
+	T & \rightarrow T \str{x} F \mid F \\
+	F & \rightarrow \str{(} E \str{)} \mid \str{a}
+\end{align*}
+To construct a Pushdown Automata that accepts $L(G_4)$, then for each production in $G_4$, transitions must be defined:
+\begin{alignat*}{3}
+	& E \rightarrow E \str{+} T \mid T & \quad \cdots \quad & \delta(q,\epsilon,E) = \{(q,E\str{+}T), (q, T)\} \\
+	& T \rightarrow T \str{+} F \mid F & \quad \cdots \quad & \delta(q,\epsilon,T) = \{(q,T\str{+}F), (q,F)\} \\
+	& F \rightarrow \str{(} E \str{)} \mid \str{a} & \quad \cdots \quad & \delta(q,\epsilon,F) = \{(q,\str{(}E\str{)}), (q,\str{a})\} \\
+\end{alignat*}
+Furthermore, transitions must be defined for the initialization, terminals, and acceptance:
+\begin{align*}
+	\delta(q, \epsilon, \epsilon) & = \{(q, E)\} \\
+	\delta(q, \epsilon, \epsilon) & = \{(q, \str{\$})\} \\ \\
+	\delta(\epsilon, \str{\$}) & = \{(q, \epsilon)\} \\ \\
+	\delta(q, \str{a}, \str{a}) & = \{(q, \epsilon)\} \\
+	\delta(q, \str{)}, \str{)}) & = \{(q, \epsilon)\} \\
+	\delta(q, \str{(}, \str{(}) & = \{(q, \epsilon)\}
+\end{align*}
+The final NPDA will thus become:
+\begin{automata}{NPDA for $L(G_4)$}
+	\state{q_s}{0}{4}
+	\state{q_l}{0}{2}
+	\state{q_a}{0}{0}
+	
+	\node[circle, draw, minimum size=0.5em](s1) at (0,3){};
+	
+	\draw[thick, ->] (q_s) -- (s1) node[midway, right]{$\epsilon, \epsilon \rightarrow E$};
+	\draw[thick, ->] (s1) -- (q_l) node[midway, right]{$\epsilon, \epsilon \rightarrow \str{\$}$};
+	
+	\draw[thick, ->] (q_l) edge[loop left, distance = 4em, in = 145, out = -145] node[align=left]{
+	$\epsilon, E \rightarrow E\str{+}T$ \\
+	$\epsilon, E \rightarrow T$ \\
+	$\epsilon, T \rightarrow T\str{+}F$ \\
+	$\epsilon, T \rightarrow F$ \\
+	$\epsilon, F \rightarrow \str{(}E\str{)}$ \\
+	$\epsilon, F \rightarrow \str{a}$
+	} (q_l);
+	
+	\draw[thick, ->] (q_l) -- (q_a) node[midway, right]{$\epsilon, \str{\$} \rightarrow \epsilon$};
+	
+	\start{q_s}
+	\accept{q_a}
+\end{automata}
